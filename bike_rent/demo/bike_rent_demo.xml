@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="product_product_bike1" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="name">Eddy Merckx EM525</field>
+    <field name="manufacturer">Eddy Merckx</field>
+    <field name="model">EM525</field>
+    <field name="description">The brand created and named after Belgian former professional road and track bicycle racer and the most decorated cyclist of all time, Édouard Louis Joseph, baron Merckx, is best known for endurance road bikes. Eddy Merckx is undeniably one of the most prestigious brands in the industry. Baron Merckx himself is often involved with the design and testing of each bike, according to Road Bike Review.</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Eddy_Merckx.jpg"/>
+</record>
+
+<record id="product_product_bike2" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="name">Pinarello Gan S</field>
+    <field name="manufacturer">Pinarello</field>
+    <field name="model">Gan S</field>
+    <field name="description">This is a high-end bike that uses carbon fiber arranged in such a way to provide excellent ride characteristics, yet maintain a very lightweight performance bicycle, Larry Engay, who has been riding bikes for decades, says. The Italian brand is best known for its quality road bikes, although it also produces cyclocross, track, mountain and city bikes. Pinarello bikes have been ridden by a number of top pro teams, including Telekom, Banesto, Movistar and Team Sky.</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
+</record>
+
+<record id="res_partner_1" model="res.partner">
+    <field name="name">Versada</field>
+    <field name="is_company">1</field>
+    <field name="image" type="base64" file="bike_rent/static/img/versada.png"/>
+</record>
+
+<record id="res_partner_2" model="res.partner">
+    <field name="name">Saulius Pladkevičius</field>
+    <field name="parent_id" eval="ref('res_partner_1')"/>
+</record>
+
+<record id="res_partner_3" model="res.partner">
+    <field name="name">Bob</field>
+    <field name="parent_id" eval="ref('res_partner_1')"/>
+</record>
+
+<record id="res_partner_4" model="res.partner">
+    <field name="name">Dervudas Venclova</field>
+</record>
+
+<record id="bike_rent_1" model="bike.rent">
+    <field name="bike_id" ref="product_product_bike1"/>
+    <field name="partner_id" ref="res_partner_2"/>
+    <field name="price">250</field>
+    <field name="rent_start" eval="(datetime.now() + timedelta(-20))"/>
+    <field name="rent_stop" eval="(datetime.now() + timedelta(-10))"/>
+    <field name="notes">Bike will be returned by his wife</field>
+</record>
+
+<record id="bike_rent_2" model="bike.rent">
+    <field name="bike_id" ref="product_product_bike2"/>
+    <field name="partner_id" ref="res_partner_1"/>
+    <field name="price">0</field>
+    <field name="rent_start" eval="(datetime.now() + timedelta(-2))"/>
+    <field name="rent_stop" eval="(datetime.now() + timedelta(5))"/>
+    <field name="notes">Used special promo coupon to get a free rent for 7 days</field>
+</record>
+
+<record id="bike_rent_3" model="bike.rent">
+    <field name="bike_id" ref="product_product_bike1"/>
+    <field name="partner_id" ref="res_partner_4"/>
+    <field name="price">199</field>
+    <field name="rent_start" eval="(datetime.now() + timedelta(-1))"/>
+    <field name="rent_stop" eval="(datetime.now() + timedelta(13))"/>
+    <field name="notes">Bike is being used for travels in other countries, stricter inspection upon return</field>
+</record>
+
+<record id="bike_rent_4" model="bike.rent">
+    <field name="bike_id" ref="product_product_bike2"/>
+    <field name="partner_id" ref="res_partner_3"/>
+    <field name="price">99</field>
+    <field name="rent_start" eval="(datetime.now() + timedelta(31))"/>
+    <field name="rent_stop" eval="(datetime.now() + timedelta(38))"/>
+    <field name="notes">Used discount coupon VACATION420</field>
+</record>
+
+</odoo>
