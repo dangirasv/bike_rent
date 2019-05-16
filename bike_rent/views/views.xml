@@ -122,17 +122,9 @@
     <field name="arch" type="xml">
         <div name="button_box" position="inside">
             <field name="rent_ids" invisible="1"/>
-            <button type="action" name="%(bike_rent.action_window)d" class="oe_stat_button" icon="fa-history"
-                    context="{'search_default_partner_id': id}" attrs="{'invisible': [('company_type', '=', 'company')]}">
+            <button type="object" name="rent_history" class="oe_stat_button" icon="fa-history">
                 <div class="o_field_widget o_stat_info">
                     <span class="o_stat_value"><field name="rent_count"/></span>
-                    <span class="o_stat_text">Rent History</span>
-                </div>
-            </button>
-            <button type="object" name="company_rent_history" class="oe_stat_button"
-                    icon="fa-history" attrs="{'invisible': [('company_type', '=', 'person')]}">
-                <div class="o_field_widget o_stat_info">
-                    <span class="o_stat_value"><field name="company_rent_count"/></span>
                     <span class="o_stat_text">Rent History</span>
                 </div>
             </button>
