@@ -1,6 +1,6 @@
 <odoo>
 <data>
-<record model="ir.ui.view" id="bike_rent_form_view">
+<record id="bike_rent_form_view" model="ir.ui.view">
     <field name="name">Bike Rent</field>
     <field name="model">bike.rent</field>
     <field name="arch" type="xml">
@@ -40,7 +40,7 @@
     </field>
 </record>
 
-<record model="ir.ui.view" id="bike_rent_tree_view">
+<record id="bike_rent_tree_view" model="ir.ui.view">
     <field name="name">Rented Bikes List</field>
     <field name="model">bike.rent</field>
     <field name="arch" type="xml">
@@ -56,7 +56,7 @@
     </field>
 </record>
 
-<record model="ir.ui.view" id="bike_rent_search_view">
+<record id="bike_rent_search_view" model="ir.ui.view">
     <field name="name">Rent Filters</field>
     <field name="model">bike.rent</field>
     <field name="arch" type="xml">
@@ -76,7 +76,7 @@
     </field>
 </record>
 
-<record model="ir.actions.act_window" id="bike_rent.action_window">
+<record id="bike_rent.action_window" model="ir.actions.act_window">
     <field name="name">Bike Rent</field>
     <field name="res_model">bike.rent</field>
     <field name="view_mode">tree,form</field>
@@ -84,77 +84,6 @@
     <field name="help" type="html">
         <p>Please click the "Create" button to start with your first entry</p>
     </field>
-</record>
-
-<record model="ir.ui.view" id="bike_product_form_view">
-    <field name="name">Bike Template</field>
-    <field name="model">product.product</field>
-    <field name="inherit_id" ref="product.product_normal_form_view"/>
-    <field name="arch" type="xml">
-        <div name="options" position="inside">
-            <field name="is_bike"/>
-            <label for="is_bike"/>
-        </div>
-        <field name="lst_price" position="before">
-            <field name="manufacturer" attrs="{'invisible': [('is_bike', '=', False)]}"/>
-            <field name="model" attrs="{'invisible': [('is_bike', '=', False)]}"/>
-        </field>
-        <notebook position="inside">
-            <page string="Rent Records">
-                <field name="rent_ids">
-                    <tree string="Registered Rents">
-                        <field name="partner_id"/>
-                        <field name="rent_start"/>
-                        <field name="rent_stop"/>
-                        <field name="rent_time"/>
-                        <field name="price"/>
-                    </tree>
-                </field>
-            </page>
-        </notebook>
-    </field>
-</record>
-
-<record model="ir.ui.view" id="bike_user_form_view">
-    <field name="name">Bike Users</field>
-    <field name="model">res.partner</field>
-    <field name="inherit_id" ref="base.view_partner_form"/>
-    <field name="arch" type="xml">
-        <div name="button_box" position="inside">
-            <field name="rent_ids" invisible="1"/>
-            <button type="object" name="rent_history" class="oe_stat_button" icon="fa-history">
-                <div class="o_field_widget o_stat_info">
-                    <span class="o_stat_value"><field name="rent_count"/></span>
-                    <span class="o_stat_text">Rent History</span>
-                </div>
-            </button>
-        </div>
-        <notebook position="inside">
-            <page string="Rent Records">
-                <field name="rent_ids">
-                    <tree string="Registered Rents">
-                        <field name="bike_id"/>
-                        <field name="rent_start"/>
-                        <field name="rent_stop"/>
-                        <field name="rent_time"/>
-                        <field name="price"/>
-                    </tree>
-                </field>
-            </page>
-        </notebook>
-    </field>
-</record>
-
-<record model="ir.actions.act_window" id="bike_rent.users_action">
-    <field name="name">Users</field>
-    <field name="res_model">res.partner</field>
-    <field name="view_mode">tree,form</field>
-</record>
-
-<record model="ir.actions.act_window" id="bike_rent.products_action">
-    <field name="name">Products</field>
-    <field name="res_model">product.product</field>
-    <field name="view_mode">tree,form</field>
 </record>
 
 <menuitem name="Bike Rent" id="bike_rent.menu_root"/>
@@ -165,12 +94,6 @@
 
 <menuitem name="Bike Rent Main" id="bike_rent.menu_1_action" parent="bike_rent.menu_1"
           action="bike_rent.action_window"/>
-
-<menuitem name="Users" id="bike_rent.menu_2_users" parent="bike_rent.menu_2"
-          action="bike_rent.users_action"/>
-
-<menuitem name="Products" id="bike_rent.menu_2_products" parent="bike_rent.menu_2"
-          action="bike_rent.products_action"/>
 
 </data>
 </odoo>

@@ -13,7 +13,9 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/bike_rent_views.xml',
+        'views/product_views.xml',
+        'views/res_partner_views.xml'
     ],
     'demo': [
         'demo/bike_rent_demo.xml',

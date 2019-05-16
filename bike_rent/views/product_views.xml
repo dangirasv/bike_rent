@@ -1,0 +1,39 @@
+<odoo>
+<record id="product_product_form_view" model="ir.ui.view">
+    <field name="name">Bike Template</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>
+    <field name="arch" type="xml">
+        <div name="options" position="inside">
+            <field name="is_bike"/>
+            <label for="is_bike"/>
+        </div>
+        <field name="lst_price" position="before">
+            <field name="manufacturer" attrs="{'invisible': [('is_bike', '=', False)]}"/>
+            <field name="model" attrs="{'invisible': [('is_bike', '=', False)]}"/>
+        </field>
+        <notebook position="inside">
+            <page string="Rent Records">
+                <field name="rent_ids">
+                    <tree string="Registered Rents">
+                        <field name="partner_id"/>
+                        <field name="rent_start"/>
+                        <field name="rent_stop"/>
+                        <field name="rent_time"/>
+                        <field name="price"/>
+                    </tree>
+                </field>
+            </page>
+        </notebook>
+    </field>
+</record>
+
+<record id="bike_rent.products_action" model="ir.actions.act_window">
+    <field name="name">Products</field>
+    <field name="res_model">product.product</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="Products" id="bike_rent.menu_2_products" parent="bike_rent.menu_2" action="bike_rent.products_action"/>
+
+</odoo>
