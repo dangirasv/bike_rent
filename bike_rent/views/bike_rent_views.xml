@@ -76,7 +76,7 @@
     </field>
 </record>
 
-<record id="bike_rent.action_window" model="ir.actions.act_window">
+<record id="action_window_bike_rent" model="ir.actions.act_window">
     <field name="name">Bike Rent</field>
     <field name="res_model">bike.rent</field>
     <field name="view_mode">tree,form</field>
@@ -92,8 +92,7 @@
 
 <menuitem name="Data" id="bike_rent.menu_2" parent="bike_rent.menu_root"/>
 
-<menuitem name="Bike Rent Main" id="bike_rent.menu_1_action" parent="bike_rent.menu_1"
-          action="bike_rent.action_window"/>
+<menuitem name="Bike Rent Main" id="bike_rent.menu_1_action" parent="bike_rent.menu_1" action="action_window_bike_rent"/>
 
 </data>
 </odoo>

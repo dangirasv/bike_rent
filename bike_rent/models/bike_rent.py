@@ -13,7 +13,7 @@ class BikeRent(models.Model):
         'product.product',
         string='Bike Model Name',
         required=True,
-        domain=[('is_bike', '=', True)]
+        domain=[('is_bike', '=', True)],
     )
     bike_description = fields.Text(related='bike_id.description', string='Bike Description', store=True)
     image = fields.Binary(related='bike_id.image', string='Bike Picture', store=True)
