@@ -1,0 +1,41 @@
+<odoo>
+
+<record id="res_partner_form_view" model="ir.ui.view">
+    <field name="name">Bike Users</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <div name="button_box" position="inside">
+            <field name="rent_ids" invisible="1"/>
+            <button type="object" name="rent_history" class="oe_stat_button" icon="fa-history">
+                <div class="o_field_widget o_stat_info">
+                    <span class="o_stat_value"><field name="rent_count"/></span>
+                    <span class="o_stat_text">Rent History</span>
+                </div>
+            </button>
+        </div>
+        <notebook position="inside">
+            <page string="Rent Records">
+                <field name="rent_ids">
+                    <tree string="Registered Rents">
+                        <field name="bike_id"/>
+                        <field name="rent_start"/>
+                        <field name="rent_stop"/>
+                        <field name="rent_time"/>
+                        <field name="price"/>
+                    </tree>
+                </field>
+            </page>
+        </notebook>
+    </field>
+</record>
+
+<record id="bike_rent.users_action" model="ir.actions.act_window">
+    <field name="name">Users</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="Users" id="bike_rent.menu_2_users" parent="bike_rent.menu_2" action="bike_rent.users_action"/>
+
+</odoo>
