@@ -30,12 +30,12 @@
     </field>
 </record>
 
-<record id="bike_rent.users_action" model="ir.actions.act_window">
-    <field name="name">Users</field>
+<record id="bike_rent.partner_action" model="ir.actions.act_window">
+    <field name="name">Partners</field>
     <field name="res_model">res.partner</field>
     <field name="view_mode">tree,form</field>
 </record>
 
-<menuitem name="Users" id="bike_rent.menu_2_users" parent="bike_rent.menu_2" action="bike_rent.users_action"/>
+<menuitem name="Partners" id="bike_rent.menu_2_users" parent="bike_rent.menu_2" action="bike_rent.partner_action"/>
 
 </odoo>

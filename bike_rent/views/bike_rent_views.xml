@@ -5,11 +5,9 @@
     <field name="model">bike.rent</field>
     <field name="arch" type="xml">
         <form>
-            <div id="container" style="width:100%;">
-                <div id="left" style="float:left; width:35%;">
-                    <field name='image' widget="image" options='{"size": [400, 400]}' class="oe_center"/>
-                </div>
-                <div id="right" style="float:right; width:65%;">
+            <sheet>
+                <group>
+                    <field name='image' widget="image" options='{"size": [400, 400]}' class="oe_left"/>
                     <group>
                         <separator string="Bike Info" colspan="2"/>
                         <field name="bike_id" options="{'no_create': True}"/>
@@ -24,18 +22,13 @@
                         <field name="rent_time"/>
                         <field name="notes"/>
                     </group>
-
-                </div>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
             </div>
-            <notebook>
-                <page string="Chatter">
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers"/>
-                        <field name="activity_ids" widget="mail_activity"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
-                </page>
-            </notebook>
         </form>
     </field>
 </record>
@@ -45,7 +38,7 @@
     <field name="model">bike.rent</field>
     <field name="arch" type="xml">
         <tree default_order='rent_start' decoration-muted="rent_stop&lt;current_date"
-              decoration-success="rent_stop&gt;=current_date" decoration-info="rent_start&gt;current_date">
+              decoration-success="rent_stop&gt;=current_date">
             <field name="bike_id"/>
             <field name="partner_id"/>
             <field name="rent_start"/>
@@ -86,6 +79,8 @@
     </field>
 </record>
 
+
+
 <menuitem name="Bike Rent" id="bike_rent.menu_root"/>
 
 <menuitem name="Bike Rent" id="bike_rent.menu_1" parent="bike_rent.menu_root"/>
@@ -93,6 +88,17 @@
 <menuitem name="Data" id="bike_rent.menu_2" parent="bike_rent.menu_root"/>
 
 <menuitem name="Bike Rent Main" id="bike_rent.menu_1_action" parent="bike_rent.menu_1" action="action_window_bike_rent"/>
+<!--
+<record id="action_window_bike_sale" model="ir.actions.act_window">
+    <field name="name">Sale</field>
+    <field name="res_model">sale.order</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p>Please click the "Create" button to start with your first entry</p>
+    </field>
+</record>
 
+<menuitem name="Sale" id="bike_rent.menu_1_action" parent="bike_rent.menu_1" action="action_window_bike_sale"/>
+-->
 </data>
 </odoo>

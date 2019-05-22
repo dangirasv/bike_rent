@@ -9,8 +9,9 @@ class ResPartner(models.Model):
 
     @api.depends('rent_ids')
     def _compute_rent_count(self):
-        for record in self:
-            record.rent_count = len(self.env['bike.rent'].search([('partner_id', 'child_of', self.id)]))
+        if self.ids:  # to prevent 'NewId' TypeError on creating new record
+            for record in self:
+                record.rent_count = len(self.env['bike.rent'].search([('partner_id', 'child_of', self.id)]))
 
     def rent_history(self):
         act = self.env.ref('bike_rent.action_window_bike_rent').read()[0]

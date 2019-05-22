@@ -13,3 +13,4 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     rent_ids = fields.One2many('bike.rent', 'bike_id', string='Rent Records')
+    rent_duration = fields.Integer(string='Rent Duration (Days)')
