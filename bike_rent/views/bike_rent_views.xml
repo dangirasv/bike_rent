@@ -88,17 +88,6 @@
 <menuitem name="Data" id="bike_rent.menu_2" parent="bike_rent.menu_root"/>
 
 <menuitem name="Bike Rent Main" id="bike_rent.menu_1_action" parent="bike_rent.menu_1" action="action_window_bike_rent"/>
-<!--
-<record id="action_window_bike_sale" model="ir.actions.act_window">
-    <field name="name">Sale</field>
-    <field name="res_model">sale.order</field>
-    <field name="view_mode">tree,form</field>
-    <field name="help" type="html">
-        <p>Please click the "Create" button to start with your first entry</p>
-    </field>
-</record>
 
-<menuitem name="Sale" id="bike_rent.menu_1_action" parent="bike_rent.menu_1" action="action_window_bike_sale"/>
--->
 </data>
 </odoo>

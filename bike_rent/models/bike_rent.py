@@ -2,6 +2,7 @@
 
 from odoo import api, fields, models
 from odoo import exceptions
+from datetime import timedelta
 
 
 class BikeRent(models.Model):
@@ -11,7 +12,7 @@ class BikeRent(models.Model):
 
     bike_id = fields.Many2one(
         'product.product',
-        string='Bike Model Name',
+        string='Bike Rent Product',
         required=True,
         domain=[('is_bike', '=', True)],
     )
@@ -20,18 +21,15 @@ class BikeRent(models.Model):
     partner_id = fields.Many2one('res.partner', string='Customer Name', required=True)
     price = fields.Float(string='Bike Rent Price')
     rent_start = fields.Datetime(string='Rent Start Time', default=fields.Datetime.now, required=True)
-    rent_stop = fields.Datetime(string='End of Rent Time', required=True)
-    rent_time = fields.Char(string='Total Rent Time', compute='_compute_rent_time', store=True)
+    rent_stop = fields.Datetime(string='End of Rent Time', compute='_compute_rent_stop')
+    rent_time = fields.Integer(string='Rent Time (Days)')
     notes = fields.Text(string='Rent Notes')
     name = fields.Char(string='Model name, mainly used for UI purposes', default='Rent Info')
 
-    @api.depends('rent_start', 'rent_stop')
-    def _compute_rent_time(self):
+    @api.depends('rent_start', 'rent_time')
+    def _compute_rent_stop(self):
         for record in self:
-            if not record.rent_stop:
-                record.rent_time = '0'
-            else:
-                record.rent_time = str(record.rent_stop - record.rent_start)
+            record.rent_stop = record.rent_start + timedelta(days=record.rent_time)
 
     @api.onchange('rent_start', 'rent_stop')
     def _onchange_verify_stop_date(self):

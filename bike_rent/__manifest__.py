@@ -6,16 +6,18 @@
     'author': "Dangiras",
     'website': "https://github.com/dangirasv/bike_rent",
     'category': 'Uncategorized',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.3.0',
     'depends': [
         'base',
         'product',
+        'sale',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/bike_rent_views.xml',
         'views/product_views.xml',
         'views/res_partner_views.xml',
+        'views/sale_views.xml',
     ],
     'demo': [
         'demo/bike_rent_demo.xml',

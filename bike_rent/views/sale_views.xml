@@ -1,0 +1,25 @@
+<odoo>
+
+<record id="bike_sale_form_view" model="ir.ui.view">
+    <field name="name">Bike Rent Quotation</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <button name="action_confirm" position="replace">
+           <button name="action_confirm_and_export" id="action_confirm_and_export" string="Confirm" class="btn-primary" type="object" attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
+        </button>
+        <button name="action_confirm" position="replace">
+           <button name="action_confirm_and_export" string="Confirm" type="object" attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+        </button>
+    </field>
+</record>
+
+<record id="bike_rent_sale_action" model="ir.actions.act_window">
+    <field name="name">Quotation</field>
+    <field name="res_model">sale.order</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="Quotation" id="bike_rent.menu_1_sale" parent="bike_rent.menu_1" action="bike_rent_sale_action"/>
+
+</odoo>

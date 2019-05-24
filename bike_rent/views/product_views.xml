@@ -12,7 +12,6 @@
             <field name="manufacturer" attrs="{'invisible': [('is_bike', '=', False)]}"/>
             <field name="model" attrs="{'invisible': [('is_bike', '=', False)]}"/>
             <field name="rent_duration" attrs="{'invisible': [('type', '=', 'consu')]}"/>
-            <field
         </field>
         <notebook position="inside">
             <page string="Rent Records">
