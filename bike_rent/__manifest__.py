@@ -18,6 +18,7 @@
         'views/product_views.xml',
         'views/res_partner_views.xml',
         'views/sale_views.xml',
+        'report/sale_order_report_templates.xml',
     ],
     'demo': [
         'demo/bike_rent_demo.xml',

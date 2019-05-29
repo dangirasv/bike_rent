@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_saleorder_document_inherit_bike_rent" inherit_id="sale.report_saleorder_document">
+      	<xpath expr="//tr" position="inside">
+            <th class="text-right">Return Date</th>
+      	</xpath>
+        <xpath expr="//td[hasclass('o_price_total')]" position="after">
+            <td t-if="line.product_id.rent_duration" class="text-right">
+                <span t-esc="(datetime.datetime.now() + datetime.timedelta(days=line.product_id.rent_duration)).strftime('%Y-%m-%d')"/>
+            </td>
+      	</xpath>
+  	</template>
+</odoo>
