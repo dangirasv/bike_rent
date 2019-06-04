@@ -1,4 +1,5 @@
-from odoo import api, models
+from odoo import api, fields, models
+from datetime import timedelta
 
 
 class SaleOrder(models.Model):
@@ -20,3 +21,16 @@ class SaleOrder(models.Model):
                 'rent_time': record.product_id.rent_duration,
             })
         return super(SaleOrder, self).action_confirm()
+
+
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+    # Cannot be stored since depends on Datetime.now()
+    rent_end_date = fields.Datetime(string='Rent End Date', compute='_compute_rent_end_date', store=False)
+
+    @api.multi
+    def _compute_rent_end_date(self):
+        for line in self.filtered(lambda x: x.product_id.type == 'service' and x.product_id.is_bike):
+            line.rent_end_date = fields.Datetime.now() + timedelta(days=line.product_id.rent_duration)
+
