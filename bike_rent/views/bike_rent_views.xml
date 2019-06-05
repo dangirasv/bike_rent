@@ -1,5 +1,6 @@
 <odoo>
 <data>
+
 <record id="bike_rent_form_view" model="ir.ui.view">
     <field name="name">Bike Rent</field>
     <field name="model">bike.rent</field>
@@ -79,15 +80,13 @@
     </field>
 </record>
 
+<menuitem name="Bike Rent" id="menu_root"/>
 
+<menuitem name="Bike Rent" id="menu_1" parent="menu_root"/>
 
-<menuitem name="Bike Rent" id="bike_rent.menu_root"/>
+<menuitem name="Data" id="menu_2" parent="menu_root"/>
 
-<menuitem name="Bike Rent" id="bike_rent.menu_1" parent="bike_rent.menu_root"/>
-
-<menuitem name="Data" id="bike_rent.menu_2" parent="bike_rent.menu_root"/>
-
-<menuitem name="Bike Rent Main" id="bike_rent.menu_1_action" parent="bike_rent.menu_1" action="action_window_bike_rent"/>
+<menuitem id="bike_rent.menu_1_action" parent="menu_1" action="action_window_bike_rent"/>
 
 </data>
 </odoo>

@@ -6,6 +6,6 @@
     <field name="view_mode">tree,form</field>
 </record>
 
-<menuitem name="Quotation" id="bike_rent.menu_1_sale" parent="bike_rent.menu_1" action="bike_rent_sale_action"/>
+<menuitem id="menu_1_sale" parent="menu_1" action="bike_rent_sale_action"/>
 
 </odoo>
