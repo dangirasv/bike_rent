@@ -1,0 +1,11 @@
+<odoo>
+
+<record id="bike_rent_sale_action" model="ir.actions.act_window">
+    <field name="name">Quotation</field>
+    <field name="res_model">sale.order</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_1_sale" parent="menu_1" action="bike_rent_sale_action"/>
+
+</odoo>

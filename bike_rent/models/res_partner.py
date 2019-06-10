@@ -9,7 +9,7 @@ class ResPartner(models.Model):
 
     @api.depends('rent_ids')
     def _compute_rent_count(self):
-        for record in self:
+        for record in self.filtered('id'):
             record.rent_count = len(self.env['bike.rent'].search([('partner_id', 'child_of', self.id)]))
 
     def rent_history(self):

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+
+<template id="report_saleorder_document_inherit_bike_rent" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[last()]" position="after">
+        <th class="text-right">Return Date</th>
+    </xpath>
+    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr/t/td[last()]" position="after">
+        <td class="text-right">
+            <span t-field="line.rent_end_date"/>
+        </td>
+    </xpath>
+</template>
+
+</odoo>

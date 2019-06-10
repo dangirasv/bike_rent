@@ -1,4 +1,5 @@
 <odoo>
+
 <record id="product_product_form_view" model="ir.ui.view">
     <field name="name">Bike Template</field>
     <field name="model">product.product</field>
@@ -11,6 +12,7 @@
         <field name="lst_price" position="before">
             <field name="manufacturer" attrs="{'invisible': [('is_bike', '=', False)]}"/>
             <field name="model" attrs="{'invisible': [('is_bike', '=', False)]}"/>
+            <field name="rent_duration" attrs="{'invisible': [('type', '=', 'consu')]}"/>
         </field>
         <notebook position="inside">
             <page string="Rent Records">
@@ -28,12 +30,12 @@
     </field>
 </record>
 
-<record id="bike_rent.products_action" model="ir.actions.act_window">
+<record id="products_action" model="ir.actions.act_window">
     <field name="name">Products</field>
     <field name="res_model">product.product</field>
     <field name="view_mode">tree,form</field>
 </record>
 
-<menuitem name="Products" id="bike_rent.menu_2_products" parent="bike_rent.menu_2" action="bike_rent.products_action"/>
+<menuitem id="menu_2_products" parent="menu_2" action="products_action"/>
 
 </odoo>
