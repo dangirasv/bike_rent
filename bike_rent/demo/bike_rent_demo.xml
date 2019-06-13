@@ -36,31 +36,7 @@
     </field>
     <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
 </record>
-<!--
-<record id="product_product_rent1" model="product.product">
-    <field name="is_bike">1</field>
-    <field name="type">service</field>
-    <field name="name">Eddy Merckx EM525 rent, 5 days</field>
-    <field name="manufacturer">Eddy Merckx</field>
-    <field name="model">EM525</field>
-    <field name="rent_duration">5</field>
-    <field name="lst_price">99</field>
-    <field name="description">All our bike rents start once the sales order is confirmed by the customer. Must be returned within noted time frame. Additional charges will be applied if return time exceeds rent duration.</field>
-    <field name="image" type="base64" file="bike_rent/static/img/Eddy_Merckx.jpg"/>
-</record>
 
-<record id="product_product_rent2" model="product.product">
-    <field name="is_bike">1</field>
-    <field name="type">service</field>
-    <field name="name">Pinarello Gan S rent, 2 days</field>
-    <field name="manufacturer">Pinarello</field>
-    <field name="model">Gan S</field>
-    <field name="rent_duration">2</field>
-    <field name="lst_price">79</field>
-    <field name="description">All our bike rents start once the sales order is confirmed by the customer. Must be returned within noted time frame. Additional charges will be applied if return time exceeds rent duration.</field>
-    <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
-</record>
--->
 <record id="res_partner_1" model="res.partner">
     <field name="name">Versada</field>
     <field name="is_company">1</field>
