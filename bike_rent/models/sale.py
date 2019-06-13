@@ -11,17 +11,23 @@ class SaleOrder(models.Model):
         # <AndriusD code
         def filter_rests(rec):
             product = rec.product_id
-            return product.is_bike and product.type == 'service'
+            return product.is_bike and product.type == 'service'  # /AndriusD code>
 
-        for record in self.order_line.filtered(filter_rests):  # /AndriusD code>
-            rent_rec = self.env['bike.rent'].create({
-                'notes': record.name,
-                'price': record.price_total,
-                'partner_id': record.order_partner_id.id,
-                'bike_id': record.product_id.id,
-                'rent_time': record.product_id.rent_duration,
-            })
-            record.bike_rent_id = rent_rec.id
+        def create_bike_rent_objects(so_record):
+            for record_line in so_record.product_id.rented_bike_ids:
+                rent_rec = self.env['bike.rent'].create({
+                    'notes': so_record.product_id.description_sale,
+                    'price': record_line.lst_price,
+                    'partner_id': so_record.order_partner_id.id,
+                    'bike_id': record_line.id,
+                    'rent_time': so_record.product_id.rent_duration,
+                    'sale_id': so_record.order_id.id
+                })
+                record.bike_rent_id = rent_rec.id
+
+        for record in self.order_line.filtered(filter_rests):  # AndriusD code line
+            create_bike_rent_objects(record)
+
         return super(SaleOrder, self).action_confirm()
 
 
@@ -34,7 +40,7 @@ class SaleOrderLine(models.Model):
     @api.multi
     def _compute_rent_end_date(self):
         for line in self.filtered(lambda x: x.product_id.type == 'service' and x.product_id.is_bike):
-            if line.state == 'draft' or line.state == 'sent':
-                line.rent_end_date = fields.Datetime.now() + timedelta(days=line.product_id.rent_duration)
-            else:
+            if line.bike_rent_id.rent_stop:
                 line.rent_end_date = line.bike_rent_id.rent_stop
+            else:
+                line.rent_end_date = fields.Datetime.now() + timedelta(days=line.product_id.rent_duration)

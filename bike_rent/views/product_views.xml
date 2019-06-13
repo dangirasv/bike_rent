@@ -8,12 +8,21 @@
         <div name="options" position="inside">
             <field name="is_bike"/>
             <label for="is_bike"/>
+            <field name="bike_shop"/>
+            <label for="bike_shop"/>
         </div>
         <field name="lst_price" position="before">
-            <field name="manufacturer" attrs="{'invisible': [('is_bike', '=', False)]}"/>
-            <field name="model" attrs="{'invisible': [('is_bike', '=', False)]}"/>
+            <field name="manufacturer" attrs="{'invisible': ['|',('is_bike', '=', False),('type', '=', 'service')]}"/>
+            <field name="model" attrs="{'invisible': ['|',('is_bike', '=', False),('type', '=', 'service')]}"/>
             <field name="rent_duration" attrs="{'invisible': [('type', '=', 'consu')]}"/>
         </field>
+        <xpath expr="//page[@name='general_information']/group" position="after">
+            <field name="rented_bike_ids" attrs="{'invisible': [('type', '=', 'consu')]}">
+                <tree editable="bottom">
+                    <field name="product_tmpl_id" string="Rented products" domain="[('type', '=', 'consu')]"/>
+                </tree>
+            </field>
+        </xpath>
         <notebook position="inside">
             <page string="Rent Records">
                 <field name="rent_ids">

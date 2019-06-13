@@ -17,6 +17,7 @@
                     <group>
                         <separator string="Rent Details" colspan="2"/>
                         <field name="partner_id"/>
+                        <field name="sale_id"/>
                         <field name="price"/>
                         <field name="rent_start"/>
                         <field name="rent_stop"/>
