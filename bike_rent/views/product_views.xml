@@ -26,7 +26,7 @@
         <notebook position="inside">
             <page string="Rent Records">
                 <field name="rent_ids">
-                    <tree string="Registered Rents">
+                    <tree>
                         <field name="partner_id"/>
                         <field name="rent_start"/>
                         <field name="rent_stop"/>
@@ -39,12 +39,12 @@
     </field>
 </record>
 
-<record id="products_action" model="ir.actions.act_window">
+<record id="products_product_action" model="ir.actions.act_window">
     <field name="name">Products</field>
     <field name="res_model">product.product</field>
     <field name="view_mode">tree,form</field>
 </record>
 
-<menuitem id="menu_2_products" parent="menu_2" action="products_action"/>
+<menuitem id="menu_2_products" parent="menu_2" action="products_product_action"/>
 
 </odoo>

@@ -13,6 +13,6 @@ class ResPartner(models.Model):
             record.rent_count = len(self.env['bike.rent'].search([('partner_id', 'child_of', self.id)]))
 
     def rent_history(self):
-        act = self.env.ref('bike_rent.action_window_bike_rent').read()[0]
+        act = self.env.ref('bike_rent.bike_rent_action').read()[0]
         act['domain'] = [('partner_id', 'child_of', self.id)]
         return act

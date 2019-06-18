@@ -30,12 +30,12 @@
     </field>
 </record>
 
-<record id="partner_action" model="ir.actions.act_window">
+<record id="res_partner_action" model="ir.actions.act_window">
     <field name="name">Partners</field>
     <field name="res_model">res.partner</field>
     <field name="view_mode">tree,form</field>
 </record>
 
-<menuitem id="menu_2_users" parent="menu_2" action="partner_action"/>
+<menuitem id="menu_2_partners" parent="menu_2" action="res_partner_action"/>
 
 </odoo>

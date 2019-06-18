@@ -6,5 +6,6 @@ class Website(models.Model):
 
     @api.multi
     def sale_product_domain(self):
-        return [('sale_ok', '=', True), ('bike_shop', '=', True), ('type', '=', 'service')] +\
-               self.get_current_website().website_domain()
+        result = super(Website, self).sale_product_domain()
+        result += [('bike_shop', '=', True), ('type', '=', 'service')]
+        return result

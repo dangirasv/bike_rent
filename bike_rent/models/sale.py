@@ -1,5 +1,5 @@
-from odoo import api, fields, models
 from datetime import timedelta
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):

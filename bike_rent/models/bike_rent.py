@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, fields, models
-from odoo import exceptions
 from datetime import timedelta
+from odoo import api, fields, models
 
 
 class BikeRent(models.Model):
@@ -10,7 +7,7 @@ class BikeRent(models.Model):
     _description = 'basic class to hold bike rent info'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    bike_id = fields.Many2one('product.product', string='Bike', required=True, domain=[('is_bike', '=', True)],)
+    bike_id = fields.Many2one('product.product', string='Bike', required=True, domain=[('is_bike', '=', True)])
     bike_description = fields.Text(related='bike_id.description', string='Description', store=True)
     image = fields.Binary(related='bike_id.image', string='Picture', store=True)
     partner_id = fields.Many2one('res.partner', string='Customer Name', required=True)
