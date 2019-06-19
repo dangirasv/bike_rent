@@ -20,6 +20,8 @@
         'report/sale_order_report_templates.xml',
     ],
     'demo': [
-        'demo/bike_rent_demo.xml',
+        'demo/product_product_demo.xml',
+        'demo/res_partner_demo.xml',
+        'demo/sale_order_demo.xml',
     ],
 }

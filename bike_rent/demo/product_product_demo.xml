@@ -35,15 +35,7 @@
     <field name="is_bike">0</field>
     <field name="name">RaceFace Chester Mountain Bike Pedal</field>
     <field name="lst_price">49</field>
-    <field name="description">
-        [Body] Nylon Composite, [Axle] Chromoly Steel
-        Imported
-        Material: [body] nylon composite, [axle] chromoly steel
-        Removable Pins: yes, steel
-        Claimed Weight: 340 g
-        Actual Weight Notes: Race Face Chester flat pedals.
-        Recommended Use: mountain bike
-    </field>
+    <field name="description">[Body] Nylon Composite, [Axle] Chromoly Steel&#xA;Imported&#xA;Material: [body] nylon composite, [axle] chromoly steel&#xA;Removable Pins: yes, steel&#xA;Claimed Weight: 340 g&#xA;Actual Weight Notes: Race Face Chester flat pedals.&#xA;Recommended Use: mountain bike</field>
     <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
 </record>
 
@@ -51,15 +43,7 @@
     <field name="is_bike">0</field>
     <field name="name">RaceFace Chester Mountain Bike Pedal</field>
     <field name="lst_price">49</field>
-    <field name="description">
-        [Body] Nylon Composite, [Axle] Chromoly Steel
-        Imported
-        Material: [body] nylon composite, [axle] chromoly steel
-        Removable Pins: yes, steel
-        Claimed Weight: 340 g
-        Actual Weight Notes: Race Face Chester flat pedals.
-        Recommended Use: mountain bike
-    </field>
+    <field name="description">[Body] Nylon Composite, [Axle] Chromoly Steel&#xA;Imported&#xA;Material: [body] nylon composite, [axle] chromoly steel&#xA;Removable Pins: yes, steel&#xA;Claimed Weight: 340 g&#xA;Actual Weight Notes: Race Face Chester flat pedals.&#xA;Recommended Use: mountain bike</field>
     <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
 </record>
 
@@ -85,15 +69,7 @@
     <field name="rent_duration">10</field>
     <field name="lst_price">29</field>
     <field name="rented_bike_ids" eval="[(4,ref('product_product_parts1_demo'))]"/>
-    <field name="description_sale">
-    [Body] Nylon Composite, [Axle] Chromoly Steel
-    Imported
-    Material: [body] nylon composite, [axle] chromoly steel
-    Removable Pins: yes, steel
-    Claimed Weight: 340 g
-    Actual Weight Notes: Race Face Chester flat pedals.
-    Recommended Use: mountain bike
-    </field>
+    <field name="description_sale">[Body] Nylon Composite, [Axle] Chromoly Steel&#xA;Imported&#xA;Material: [body] nylon composite, [axle] chromoly steel&#xA;Removable Pins: yes, steel&#xA;Claimed Weight: 340 g&#xA;Actual Weight Notes: Race Face Chester flat pedals.&#xA;Recommended Use: mountain bike</field>
     <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
 </record>
 
@@ -108,44 +84,6 @@
     <field name="rented_bike_ids" eval="[(6,0,[ref('product_product_bike3_demo'),ref('product_product_parts2_demo')])]"/>
     <field name="description_sale">Gread condition Pinarello GanS bike with an extra pedal, 4 days rent (please refer to our Terms and Conditions regarding our return policy).</field>
     <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
-</record>
-
-<record id="res_partner_1_demo" model="res.partner">
-    <field name="name">Versada</field>
-    <field name="is_company">1</field>
-    <field name="street">Karaliaus Mindaugo pr. 37</field>
-    <field name="city">Kaunas</field>
-    <field name="zip">44307</field>
-    <field name="country_id">132</field>
-    <field name="email">info@versada.eu</field>
-    <field name="website">http://www.versada.eu</field>
-    <field name="image" type="base64" file="bike_rent/static/img/versada.png"/>
-</record>
-
-<record id="res_partner_2_demo" model="res.partner">
-    <field name="name">Saulius Pladkevičius</field>
-    <field name="parent_id" ref="res_partner_1_demo"/>
-</record>
-
-<record id="res_partner_3_demo" model="res.partner">
-    <field name="name">Bob</field>
-    <field name="parent_id" ref="res_partner_1_demo"/>
-</record>
-
-<record id="res_partner_4" model="res.partner">
-    <field name="name">Dervudas Venclova</field>
-</record>
-
-<record id="website_sale_order_rent1_demo" model="sale.order">
-    <field name="partner_id" ref="res_partner_2_demo"/>
-    <field name="user_id" ref="base.user_demo"/>
-    <field name="date_order" eval="datetime.now()"/>
-    <field name="state">draft</field>
-</record>
-
-<record id="website_sale_order_line_rent1_demo" model="sale.order.line">
-    <field name="order_id" ref="website_sale_order_rent1_demo"/>
-    <field name="product_id" ref="product_product_rent1_demo"/>
 </record>
 
 </odoo>

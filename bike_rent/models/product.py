@@ -15,5 +15,11 @@ class ProductProduct(models.Model):
 
     rent_ids = fields.One2many('bike.rent', 'bike_id', string='Rent Records')
     rent_duration = fields.Integer(string='Rent Duration (Days)')
-    product_bike_id = fields.Many2one('product.product', string='Bike ID', index=True, ondelete='cascade')
+    product_bike_id = fields.Many2one(
+        'product.product',
+        string='Bike ID',
+        index=True,
+        ondelete='cascade',
+        domain=[('is_bike', '=', True)],
+    )
     rented_bike_ids = fields.One2many('product.product', 'product_bike_id', string='Rented Bikes')

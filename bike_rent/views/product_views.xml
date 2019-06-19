@@ -39,12 +39,6 @@
     </field>
 </record>
 
-<record id="products_product_action" model="ir.actions.act_window">
-    <field name="name">Products</field>
-    <field name="res_model">product.product</field>
-    <field name="view_mode">tree,form</field>
-</record>
-
-<menuitem id="menu_2_products" parent="menu_2" action="products_product_action"/>
+<menuitem id="product_product_menu" parent="menu_2" action="product.product_normal_action"/>
 
 </odoo>

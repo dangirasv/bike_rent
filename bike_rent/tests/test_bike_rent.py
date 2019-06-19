@@ -15,8 +15,8 @@ class TestBikeRent(TransactionCase):
         # Should I use filtered here instead?
         new_bike_rent_records = self.BikeRent.search([('sale_id', '=', self.sale_order1.id)])
         self.assertTrue(new_bike_rent_records)
-        self.assertEqual(len(new_bike_rent_records), len(self.sale_order1.order_line.product_id.rented_bike_ids))
+        self.assertEqual(len(new_bike_rent_records), 2)
 
         # Testing if rent duration data is recorded correctly
         product_rent_duration = self.sale_order1.order_line.product_id.rent_duration
-        self.assertEqual(product_rent_duration, new_bike_rent_records.read()[0]['rent_time'])
+        self.assertEqual(product_rent_duration, new_bike_rent_records.mapped('rent_time')[0])

@@ -36,6 +36,6 @@
     <field name="view_mode">tree,form</field>
 </record>
 
-<menuitem id="menu_2_partners" parent="menu_2" action="res_partner_action"/>
+<menuitem id="res_partner_menu" parent="menu_2" action="res_partner_action"/>
 
 </odoo>
