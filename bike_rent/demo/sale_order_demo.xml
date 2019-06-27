@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="website_sale_order_rent1_demo" model="sale.order">
+    <field name="partner_id" ref="res_partner_2_demo"/>
+    <field name="user_id" ref="base.user_demo"/>
+    <field name="date_order" eval="datetime.now()"/>
+    <field name="state">draft</field>
+</record>
+
+<record id="website_sale_order_line_rent1_demo" model="sale.order.line">
+    <field name="order_id" ref="website_sale_order_rent1_demo"/>
+    <field name="product_id" ref="product_product_rent1_demo"/>
+</record>
+
+</odoo>

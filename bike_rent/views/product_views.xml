@@ -8,16 +8,25 @@
         <div name="options" position="inside">
             <field name="is_bike"/>
             <label for="is_bike"/>
+            <field name="bike_shop"/>
+            <label for="bike_shop"/>
         </div>
         <field name="lst_price" position="before">
-            <field name="manufacturer" attrs="{'invisible': [('is_bike', '=', False)]}"/>
-            <field name="model" attrs="{'invisible': [('is_bike', '=', False)]}"/>
+            <field name="manufacturer" attrs="{'invisible': ['|',('is_bike', '=', False),('type', '=', 'service')]}"/>
+            <field name="model" attrs="{'invisible': ['|',('is_bike', '=', False),('type', '=', 'service')]}"/>
             <field name="rent_duration" attrs="{'invisible': [('type', '=', 'consu')]}"/>
         </field>
+        <xpath expr="//page[@name='general_information']/group" position="after">
+            <field name="rented_bike_ids" attrs="{'invisible': [('type', '=', 'consu')]}">
+                <tree editable="bottom">
+                    <field name="product_tmpl_id" string="Rented products" domain="[('type', '=', 'consu')]"/>
+                </tree>
+            </field>
+        </xpath>
         <notebook position="inside">
             <page string="Rent Records">
                 <field name="rent_ids">
-                    <tree string="Registered Rents">
+                    <tree>
                         <field name="partner_id"/>
                         <field name="rent_start"/>
                         <field name="rent_stop"/>
@@ -30,12 +39,6 @@
     </field>
 </record>
 
-<record id="products_action" model="ir.actions.act_window">
-    <field name="name">Products</field>
-    <field name="res_model">product.product</field>
-    <field name="view_mode">tree,form</field>
-</record>
-
-<menuitem id="menu_2_products" parent="menu_2" action="products_action"/>
+<menuitem id="product_product_menu" parent="menu_2" action="product.product_normal_action"/>
 
 </odoo>

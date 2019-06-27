@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+
+<template id="website_sale_product_inherit_bike_rent" inherit_id="website_sale.product">
+    <xpath expr="//section" position="inside">
+        <table class="table table-striped" t-if="product_variant.is_bike">
+            <thead>
+                <tr>
+                    <th scope="col">Manufacturer</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Model</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="product_variant.rented_bike_ids" t-as="product_line">
+                    <tr t-if="product_line.is_bike">
+                        <th scope="row">
+                            <span t-field="product_line.manufacturer"/>
+                        </th>
+                        <td>
+                            <span t-field="product_line.name"/>
+                        </td>
+                        <td>
+                            <span t-field="product_line.model"/>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </xpath>
+</template>
+
+</odoo>

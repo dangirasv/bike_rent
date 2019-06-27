@@ -17,6 +17,7 @@
                     <group>
                         <separator string="Rent Details" colspan="2"/>
                         <field name="partner_id"/>
+                        <field name="sale_id"/>
                         <field name="price"/>
                         <field name="rent_start"/>
                         <field name="rent_stop"/>
@@ -70,7 +71,7 @@
     </field>
 </record>
 
-<record id="action_window_bike_rent" model="ir.actions.act_window">
+<record id="bike_rent_action" model="ir.actions.act_window">
     <field name="name">Bike Rent</field>
     <field name="res_model">bike.rent</field>
     <field name="view_mode">tree,form</field>
@@ -86,7 +87,7 @@
 
 <menuitem name="Data" id="menu_2" parent="menu_root"/>
 
-<menuitem id="bike_rent.menu_1_action" parent="menu_1" action="action_window_bike_rent"/>
+<menuitem id="bike_rent_menu" parent="menu_1" action="bike_rent_action"/>
 
 </data>
 </odoo>

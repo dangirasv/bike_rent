@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="product_product_bike1_demo" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="name">Eddy Merckx EM525</field>
+    <field name="manufacturer">Eddy Merckx</field>
+    <field name="model">EM525</field>
+    <field name="lst_price">1599</field>
+    <field name="description">The brand created and named after Belgian former professional road and track bicycle racer and the most decorated cyclist of all time, Édouard Louis Joseph, baron Merckx, is best known for endurance road bikes. Eddy Merckx is undeniably one of the most prestigious brands in the industry. Baron Merckx himself is often involved with the design and testing of each bike, according to Road Bike Review.</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Eddy_Merckx.jpg"/>
+</record>
+
+<record id="product_product_bike2_demo" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="name">Pinarello Gan S</field>
+    <field name="manufacturer">Pinarello</field>
+    <field name="model">Gan S</field>
+    <field name="lst_price">2259</field>
+    <field name="description">This is a high-end bike that uses carbon fiber arranged in such a way to provide excellent ride characteristics, yet maintain a very lightweight performance bicycle, Larry Engay, who has been riding bikes for decades, says. The Italian brand is best known for its quality road bikes, although it also produces cyclocross, track, mountain and city bikes. Pinarello bikes have been ridden by a number of top pro teams, including Telekom, Banesto, Movistar and Team Sky.</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
+</record>
+
+<record id="product_product_bike3_demo" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="name">Pinarello Gan S</field>
+    <field name="manufacturer">Pinarello</field>
+    <field name="model">Gan S</field>
+    <field name="lst_price">2259</field>
+    <field name="description">This is a high-end bike that uses carbon fiber arranged in such a way to provide excellent ride characteristics, yet maintain a very lightweight performance bicycle, Larry Engay, who has been riding bikes for decades, says. The Italian brand is best known for its quality road bikes, although it also produces cyclocross, track, mountain and city bikes. Pinarello bikes have been ridden by a number of top pro teams, including Telekom, Banesto, Movistar and Team Sky.</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
+</record>
+
+<record id="product_product_parts1_demo" model="product.product">
+    <field name="is_bike">0</field>
+    <field name="name">RaceFace Chester Mountain Bike Pedal</field>
+    <field name="lst_price">49</field>
+    <field name="description">[Body] Nylon Composite, [Axle] Chromoly Steel&#xA;Imported&#xA;Material: [body] nylon composite, [axle] chromoly steel&#xA;Removable Pins: yes, steel&#xA;Claimed Weight: 340 g&#xA;Actual Weight Notes: Race Face Chester flat pedals.&#xA;Recommended Use: mountain bike</field>
+    <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
+</record>
+
+<record id="product_product_parts2_demo" model="product.product">
+    <field name="is_bike">0</field>
+    <field name="name">RaceFace Chester Mountain Bike Pedal</field>
+    <field name="lst_price">49</field>
+    <field name="description">[Body] Nylon Composite, [Axle] Chromoly Steel&#xA;Imported&#xA;Material: [body] nylon composite, [axle] chromoly steel&#xA;Removable Pins: yes, steel&#xA;Claimed Weight: 340 g&#xA;Actual Weight Notes: Race Face Chester flat pedals.&#xA;Recommended Use: mountain bike</field>
+    <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
+</record>
+
+<record id="product_product_rent1_demo" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="bike_shop">1</field>
+    <field name="website_published">1</field>
+    <field name="name">Demo 2 Bike Rent, 6 Days</field>
+    <field name="type">service</field>
+    <field name="rent_duration">6</field>
+    <field name="lst_price">199</field>
+    <field name="rented_bike_ids" eval="[(6,0,[ref('product_product_bike1_demo'),ref('product_product_bike2_demo')])]"/>
+    <field name="description_sale">Gread condition Pinarello GanS and Eddy Merckx EM525 bikes, 6 days rent (please refer to our Terms and Conditions regarding our return policy).</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
+</record>
+
+<record id="product_product_rent2_demo" model="product.product">
+    <field name="is_bike">0</field>
+    <field name="bike_shop">1</field>
+    <field name="website_published">1</field>
+    <field name="name">Demo Bike Pedal Rent, 10 Days</field>
+    <field name="type">service</field>
+    <field name="rent_duration">10</field>
+    <field name="lst_price">29</field>
+    <field name="rented_bike_ids" eval="[(4,ref('product_product_parts1_demo'))]"/>
+    <field name="description_sale">[Body] Nylon Composite, [Axle] Chromoly Steel&#xA;Imported&#xA;Material: [body] nylon composite, [axle] chromoly steel&#xA;Removable Pins: yes, steel&#xA;Claimed Weight: 340 g&#xA;Actual Weight Notes: Race Face Chester flat pedals.&#xA;Recommended Use: mountain bike</field>
+    <field name="image" type="base64" file="bike_rent/static/img/pedal.jpg"/>
+</record>
+
+<record id="product_product_rent3_demo" model="product.product">
+    <field name="is_bike">1</field>
+    <field name="bike_shop">1</field>
+    <field name="website_published">1</field>
+    <field name="name">Demo Pinarello Bike Rent + Pedal, 4 Days</field>
+    <field name="type">service</field>
+    <field name="rent_duration">4</field>
+    <field name="lst_price">99</field>
+    <field name="rented_bike_ids" eval="[(6,0,[ref('product_product_bike3_demo'),ref('product_product_parts2_demo')])]"/>
+    <field name="description_sale">Gread condition Pinarello GanS bike with an extra pedal, 4 days rent (please refer to our Terms and Conditions regarding our return policy).</field>
+    <field name="image" type="base64" file="bike_rent/static/img/Pinarello.jpg"/>
+</record>
+
+</odoo>

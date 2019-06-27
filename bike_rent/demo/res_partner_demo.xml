@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="res_partner_1_demo" model="res.partner">
+    <field name="name">Versada</field>
+    <field name="is_company">1</field>
+    <field name="street">Karaliaus Mindaugo pr. 37</field>
+    <field name="city">Kaunas</field>
+    <field name="zip">44307</field>
+    <field name="country_id">132</field>
+    <field name="email">info@versada.eu</field>
+    <field name="website">http://www.versada.eu</field>
+    <field name="image" type="base64" file="bike_rent/static/img/versada.png"/>
+</record>
+
+<record id="res_partner_2_demo" model="res.partner">
+    <field name="name">Saulius Pladkevičius</field>
+    <field name="parent_id" ref="res_partner_1_demo"/>
+</record>
+
+<record id="res_partner_3_demo" model="res.partner">
+    <field name="name">Bob</field>
+    <field name="parent_id" ref="res_partner_1_demo"/>
+</record>
+
+<record id="res_partner_4" model="res.partner">
+    <field name="name">Dervudas Venclova</field>
+</record>
+
+</odoo>
