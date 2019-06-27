@@ -11,22 +11,10 @@ class SaleOrder(models.Model):
         # <AndriusD code
         def filter_rests(rec):
             product = rec.product_id
-            return product.is_bike and product.type == 'service'  # /AndriusD code>
+            return product.is_bike and product.type == 'service'
 
-        def create_bike_rent_objects(so_record):
-            for record_line in so_record.product_id.rented_bike_ids:
-                rent_rec = self.env['bike.rent'].create({
-                    'notes': so_record.product_id.description_sale,
-                    'price': record_line.lst_price,
-                    'partner_id': so_record.order_partner_id.id,
-                    'bike_id': record_line.id,
-                    'rent_time': so_record.product_id.rent_duration,
-                    'sale_id': so_record.order_id.id
-                })
-                record.bike_rent_id = rent_rec.id
-
-        for record in self.order_line.filtered(filter_rests):  # AndriusD code line
-            create_bike_rent_objects(record)
+        for line in self.mapped('order_line').filtered(filter_rests):
+            line.create_bike_rents()  # /AndriusD code>
 
         return super(SaleOrder, self).action_confirm()
 
@@ -36,6 +24,18 @@ class SaleOrderLine(models.Model):
 
     rent_end_date = fields.Datetime(string='Rent End Date', compute='_compute_rent_end_date')
     bike_rent_id = fields.Many2one('bike.rent', string='Rent ID')
+
+    def create_bike_rents(self):
+        for line in self.product_id.rented_bike_ids:
+            rent_rec = self.env['bike.rent'].create({
+                'notes': self.product_id.description_sale,
+                'price': line.lst_price,
+                'partner_id': self.order_partner_id.id,
+                'bike_id': line.id,
+                'rent_time': self.product_id.rent_duration,
+                'sale_id': self.order_id.id
+            })
+            self.bike_rent_id = rent_rec.id
 
     @api.multi
     def _compute_rent_end_date(self):
